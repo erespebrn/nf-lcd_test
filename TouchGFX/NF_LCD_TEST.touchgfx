@@ -1,0 +1,296 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "LoadScreen",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 480,
+            "Height": 272
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "scalabeLogo",
+            "X": 130,
+            "Y": 65,
+            "Width": 221,
+            "Height": 57,
+            "Filename": "emwise_logo_cropped.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "BoxProgress",
+            "Name": "m_initProgressBar",
+            "X": 90,
+            "Y": 161,
+            "Width": 300,
+            "Height": 10,
+            "Color": {
+              "Green": 255,
+              "Blue": 47
+            },
+            "Direction": "Right",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_medium.png",
+            "IndicatorPositionWidth": 300,
+            "IndicatorPositionHeight": 10,
+            "ProgressRangeMax": 100
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "LoadToMenuScreen",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "MenuScreen"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "MenuScreen",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 480,
+            "Height": 272
+          },
+          {
+            "Type": "Line",
+            "Name": "line1",
+            "Y": 52,
+            "Width": 480,
+            "Height": 50,
+            "Color": {
+              "Red": 43,
+              "Green": 178,
+              "Blue": 30
+            },
+            "StartX": 40.0,
+            "StartY": 5.0,
+            "EndX": 432.0,
+            "EndY": 5.0,
+            "LineWidth": 2.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 154,
+            "Y": 32,
+            "Width": 172,
+            "Height": 20,
+            "TextId": "__SingleUse_OD6K",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 90,
+              "Green": 189,
+              "Blue": 77
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "DigitalClock",
+            "Name": "digitalClock1",
+            "X": 374,
+            "Y": 241,
+            "Width": 100,
+            "Height": 25,
+            "TextColor": {
+              "Red": 59,
+              "Green": 87,
+              "Blue": 51
+            },
+            "TextId": "__SingleUse_HWO3",
+            "DisplaySeconds": true,
+            "DisplayLeadingZeroForHourIndicator": true,
+            "InitialHour": 10,
+            "InitialMinute": 10
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "flexButton1",
+            "X": 37,
+            "Y": 77,
+            "Width": 104,
+            "Height": 74,
+            "Alpha": 115,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 104,
+                "Height": 74,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 36,
+                  "Green": 153
+                },
+                "ColorPressed": {
+                  "Red": 66,
+                  "Green": 235,
+                  "Blue": 14
+                },
+                "ColorBorderReleased": {
+                  "Red": 36,
+                  "Green": 61,
+                  "Blue": 10
+                },
+                "ColorBorderPressed": {
+                  "Red": 31,
+                  "Green": 76,
+                  "Blue": 25
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "flexButton1_1",
+            "X": 154,
+            "Y": 77,
+            "Width": 277,
+            "Height": 74,
+            "Alpha": 115,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 277,
+                "Height": 74,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 36,
+                  "Green": 153
+                },
+                "ColorPressed": {
+                  "Red": 66,
+                  "Green": 235,
+                  "Blue": 14
+                },
+                "ColorBorderReleased": {
+                  "Red": 36,
+                  "Green": 61,
+                  "Blue": 10
+                },
+                "ColorBorderPressed": {
+                  "Red": 31,
+                  "Green": 76,
+                  "Blue": 25
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "flexButton1_2",
+            "X": 37,
+            "Y": 167,
+            "Width": 394,
+            "Height": 74,
+            "Alpha": 115,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 394,
+                "Height": 74,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 36,
+                  "Green": 153
+                },
+                "ColorPressed": {
+                  "Red": 66,
+                  "Green": 235,
+                  "Blue": 14
+                },
+                "ColorBorderReleased": {
+                  "Red": 36,
+                  "Green": 61,
+                  "Blue": 10
+                },
+                "ColorBorderPressed": {
+                  "Red": 31,
+                  "Green": 76,
+                  "Blue": 25
+                }
+              }
+            ]
+          }
+        ],
+        "Interactions": []
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "MyApplication",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 24,
+    "StartupScreenName": "LoadScreen",
+    "SelectedStartupLanguage": "GB",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      24
+    ],
+    "AvailableLCDs": {
+      "24": "LCD24bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 272
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD24bpp": {
+        "Id": "LCD24bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32F7",
+    "SubFamily": "STM32F7x6",
+    "Toolchain": "STM32CubeIDE",
+    "Platform": "m7",
+    "ProjectFile": "../NF_LCD_TEST.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [],
+    "AdditionalFeatures": []
+  },
+  "Version": "4.22.0"
+}
