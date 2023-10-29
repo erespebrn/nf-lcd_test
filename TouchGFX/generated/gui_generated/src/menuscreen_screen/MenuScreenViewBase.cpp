@@ -5,8 +5,10 @@
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <images/BitmapDatabase.hpp>
 
-MenuScreenViewBase::MenuScreenViewBase()
+MenuScreenViewBase::MenuScreenViewBase() :
+    flexButtonCallback(this, &MenuScreenViewBase::flexButtonCallbackHandler)
 {
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
     
@@ -14,53 +16,63 @@ MenuScreenViewBase::MenuScreenViewBase()
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    box1.setPosition(0, 0, 480, 272);
-    box1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    add(box1);
+    box.setPosition(0, 0, 480, 272);
+    box.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    add(box);
 
-    line1.setPosition(0, 52, 480, 50);
-    line1Painter.setColor(touchgfx::Color::getColorFromRGB(43, 178, 30));
+    line1.setPosition(0, 29, 480, 50);
+    line1Painter.setColor(touchgfx::Color::getColorFromRGB(93, 245, 76));
     line1.setPainter(line1Painter);
-    line1.setStart(40, 5);
-    line1.setEnd(432, 5);
-    line1.setLineWidth(2);
+    line1.setStart(10, 5);
+    line1.setEnd(470, 5);
+    line1.setLineWidth(1);
     line1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(line1);
 
-    textArea1.setXY(154, 32);
+    textArea1.setXY(12, 9);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(90, 189, 77));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OD6K));
     add(textArea1);
 
-    digitalClock1.setPosition(374, 241, 100, 25);
-    digitalClock1.setColor(touchgfx::Color::getColorFromRGB(59, 87, 51));
-    digitalClock1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HWO3));
-    digitalClock1.displayLeadingZeroForHourIndicator(true);
-    digitalClock1.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR);
-    digitalClock1.setTime24Hour(10, 10, 0);
-    add(digitalClock1);
+    robotButtonSmall.setBoxWithBorderPosition(0, 0, 328, 100);
+    robotButtonSmall.setBorderSize(0);
+    robotButtonSmall.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(67, 107, 72), touchgfx::Color::getColorFromRGB(9, 176, 14), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
+    robotButtonSmall.setIconBitmaps(Bitmap(BITMAP_ROBOTIC_ARM_ID), Bitmap(BITMAP_ROBOTIC_ARM_ID));
+    robotButtonSmall.setIconXY(150, 20);
+    robotButtonSmall.setText(TypedText(T___SINGLEUSE_NS0Z));
+    robotButtonSmall.setTextPosition(0, 60, 328, 100);
+    robotButtonSmall.setTextColors(touchgfx::Color::getColorFromRGB(255, 255, 255), touchgfx::Color::getColorFromRGB(250, 250, 250));
+    robotButtonSmall.setAlpha(176);
+    robotButtonSmall.setAction(flexButtonCallback);
+    robotButtonSmall.setPosition(20, 50, 328, 100);
+    add(robotButtonSmall);
 
-    flexButton1.setBoxWithBorderPosition(0, 0, 104, 74);
-    flexButton1.setBorderSize(5);
-    flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(36, 153, 0), touchgfx::Color::getColorFromRGB(66, 235, 14), touchgfx::Color::getColorFromRGB(36, 61, 10), touchgfx::Color::getColorFromRGB(31, 76, 25));
-    flexButton1.setAlpha(115);
-    flexButton1.setPosition(37, 77, 104, 74);
-    add(flexButton1);
+    instrButton.setBoxWithBorderPosition(0, 0, 328, 100);
+    instrButton.setBorderSize(0);
+    instrButton.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(67, 107, 72), touchgfx::Color::getColorFromRGB(9, 176, 14), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
+    instrButton.setIconBitmaps(Bitmap(BITMAP_INSTRUMENT_30X30_ID), Bitmap(BITMAP_INSTRUMENT_30X30_ID));
+    instrButton.setIconXY(150, 20);
+    instrButton.setText(TypedText(T___SINGLEUSE_XGWC));
+    instrButton.setTextPosition(0, 60, 328, 100);
+    instrButton.setTextColors(touchgfx::Color::getColorFromRGB(255, 255, 255), touchgfx::Color::getColorFromRGB(250, 250, 250));
+    instrButton.setAlpha(176);
+    instrButton.setAction(flexButtonCallback);
+    instrButton.setPosition(20, 163, 328, 100);
+    add(instrButton);
 
-    flexButton1_1.setBoxWithBorderPosition(0, 0, 277, 74);
-    flexButton1_1.setBorderSize(5);
-    flexButton1_1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(36, 153, 0), touchgfx::Color::getColorFromRGB(66, 235, 14), touchgfx::Color::getColorFromRGB(36, 61, 10), touchgfx::Color::getColorFromRGB(31, 76, 25));
-    flexButton1_1.setAlpha(115);
-    flexButton1_1.setPosition(154, 77, 277, 74);
-    add(flexButton1_1);
-
-    flexButton1_2.setBoxWithBorderPosition(0, 0, 394, 74);
-    flexButton1_2.setBorderSize(5);
-    flexButton1_2.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(36, 153, 0), touchgfx::Color::getColorFromRGB(66, 235, 14), touchgfx::Color::getColorFromRGB(36, 61, 10), touchgfx::Color::getColorFromRGB(31, 76, 25));
-    flexButton1_2.setAlpha(115);
-    flexButton1_2.setPosition(37, 167, 394, 74);
-    add(flexButton1_2);
+    statusButton.setBoxWithBorderPosition(0, 0, 100, 213);
+    statusButton.setBorderSize(0);
+    statusButton.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(67, 107, 72), touchgfx::Color::getColorFromRGB(9, 176, 14), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
+    statusButton.setIconBitmaps(Bitmap(BITMAP_STATUS_ID), Bitmap(BITMAP_STATUS_ID));
+    statusButton.setIconXY(35, 80);
+    statusButton.setText(TypedText(T___SINGLEUSE_PVA0));
+    statusButton.setTextPosition(0, 120, 100, 213);
+    statusButton.setTextColors(touchgfx::Color::getColorFromRGB(255, 255, 255), touchgfx::Color::getColorFromRGB(255, 255, 255));
+    statusButton.setAlpha(176);
+    statusButton.setAction(flexButtonCallback);
+    statusButton.setPosition(359, 50, 100, 213);
+    add(statusButton);
 }
 
 MenuScreenViewBase::~MenuScreenViewBase()
@@ -71,4 +83,29 @@ MenuScreenViewBase::~MenuScreenViewBase()
 void MenuScreenViewBase::setupScreen()
 {
 
+}
+
+void MenuScreenViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
+{
+    if (&src == &robotButtonSmall)
+    {
+        //gotoRobotScreen
+        //When robotButtonSmall clicked change screen to RobotScreen
+        //Go to RobotScreen with screen transition towards West
+        application().gotoRobotScreenScreenWipeTransitionWest();
+    }
+    if (&src == &instrButton)
+    {
+        //gotoInstrScreen
+        //When instrButton clicked change screen to InstrScreen
+        //Go to InstrScreen with screen transition towards West
+        application().gotoInstrScreenScreenWipeTransitionWest();
+    }
+    if (&src == &statusButton)
+    {
+        //gotoStatusScreen
+        //When statusButton clicked change screen to InstrScreen
+        //Go to InstrScreen with screen transition towards West
+        application().gotoInstrScreenScreenWipeTransitionWest();
+    }
 }

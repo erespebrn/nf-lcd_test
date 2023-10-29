@@ -10,6 +10,7 @@
 
 #include <touchgfx/transitions/NoTransition.hpp>
 #include <touchgfx/transitions/CoverTransition.hpp>
+#include <touchgfx/transitions/WipeTransition.hpp>
 
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
@@ -18,6 +19,12 @@
 #include <gui/loadscreen_screen/LoadScreenPresenter.hpp>
 #include <gui/menuscreen_screen/MenuScreenView.hpp>
 #include <gui/menuscreen_screen/MenuScreenPresenter.hpp>
+#include <gui/robotscreen_screen/RobotScreenView.hpp>
+#include <gui/robotscreen_screen/RobotScreenPresenter.hpp>
+#include <gui/instrscreen_screen/InstrScreenView.hpp>
+#include <gui/instrscreen_screen/InstrScreenPresenter.hpp>
+#include <gui/statusscreen_screen/StatusScreenView.hpp>
+#include <gui/statusscreen_screen/StatusScreenPresenter.hpp>
 
 
 /**
@@ -42,7 +49,10 @@ public:
      */
     typedef touchgfx::meta::TypeList< LoadScreenView,
             touchgfx::meta::TypeList< MenuScreenView,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< RobotScreenView,
+            touchgfx::meta::TypeList< InstrScreenView,
+            touchgfx::meta::TypeList< StatusScreenView,
+            touchgfx::meta::Nil > > > >
             > GeneratedViewTypes;
 
     /**
@@ -56,7 +66,10 @@ public:
      */
     typedef touchgfx::meta::TypeList< LoadScreenPresenter,
             touchgfx::meta::TypeList< MenuScreenPresenter,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< RobotScreenPresenter,
+            touchgfx::meta::TypeList< InstrScreenPresenter,
+            touchgfx::meta::TypeList< StatusScreenPresenter,
+            touchgfx::meta::Nil > > > >
             > GeneratedPresenterTypes;
 
     /**
@@ -70,7 +83,9 @@ public:
      */
     typedef touchgfx::meta::TypeList< touchgfx::NoTransition,
             touchgfx::meta::TypeList< CoverTransition<EAST>,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< WipeTransition<WEST>,
+            touchgfx::meta::TypeList< WipeTransition<EAST>,
+            touchgfx::meta::Nil > > >
             > GeneratedTransitionTypes;
 
     /**
@@ -80,7 +95,7 @@ public:
 
     virtual void gotoStartScreen(FrontendApplication& app)
     {
-        app.gotoLoadScreenScreenNoTransition();
+        app.gotoMenuScreenScreenNoTransition();
     }
 protected:
     FrontendHeapBase(touchgfx::AbstractPartition& presenters, touchgfx::AbstractPartition& views, touchgfx::AbstractPartition& transitions, FrontendApplication& app)

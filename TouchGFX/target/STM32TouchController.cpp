@@ -26,31 +26,17 @@
 #include "stm32746g_discovery_ts.h"
 #include "main.h"
 
-#define SCREEN_TIMEOUT_MS (3*60*1000)
+#define SCREEN_TIMEOUT_MS (10*1000)
 
 extern I2C_HandleTypeDef hi2c3;
 
 void STM32TouchController::init()
 {
-    /**
-     * Initialize touch controller and driver
-     *
-     */
   BSP_TS_Init(480, 272);
 }
 
 bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
 {
-    /**
-     * By default sampleTouch returns false,
-     * return true if a touch has been detected, otherwise false.
-     *
-     * Coordinates are passed to the caller by reference by x and y.
-     *
-     * This function is called by the TouchGFX framework.
-     * By default sampleTouch is called every tick, this can be adjusted by HAL::setTouchSampleRate(int8_t);
-     *
-     */
   bool touchDetected = false;
 
   TS_StateTypeDef state = { 0 };
@@ -89,7 +75,7 @@ bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
     m_screenOffCnt = HAL_GetTick();
   }
 
-  return touchDetected;
+  return m_screenOff ? false : touchDetected;
 }
 
 /* USER CODE END STM32TouchController */

@@ -13,6 +13,12 @@
 #include <gui/loadscreen_screen/LoadScreenPresenter.hpp>
 #include <gui/menuscreen_screen/MenuScreenView.hpp>
 #include <gui/menuscreen_screen/MenuScreenPresenter.hpp>
+#include <gui/robotscreen_screen/RobotScreenView.hpp>
+#include <gui/robotscreen_screen/RobotScreenPresenter.hpp>
+#include <gui/instrscreen_screen/InstrScreenView.hpp>
+#include <gui/instrscreen_screen/InstrScreenPresenter.hpp>
+#include <gui/statusscreen_screen/StatusScreenView.hpp>
+#include <gui/statusscreen_screen/StatusScreenPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -32,20 +38,18 @@ FrontendApplicationBase::FrontendApplicationBase(Model& m, FrontendHeap& heap)
  * Screen Transition Declarations
  */
 
-// LoadScreen
+// MenuScreen
 
-void FrontendApplicationBase::gotoLoadScreenScreenNoTransition()
+void FrontendApplicationBase::gotoMenuScreenScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoLoadScreenScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoMenuScreenScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoLoadScreenScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoMenuScreenScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<LoadScreenView, LoadScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<MenuScreenView, MenuScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
-
-// MenuScreen
 
 void FrontendApplicationBase::gotoMenuScreenScreenCoverTransitionEast()
 {
@@ -56,4 +60,41 @@ void FrontendApplicationBase::gotoMenuScreenScreenCoverTransitionEast()
 void FrontendApplicationBase::gotoMenuScreenScreenCoverTransitionEastImpl()
 {
     touchgfx::makeTransition<MenuScreenView, MenuScreenPresenter, touchgfx::CoverTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+void FrontendApplicationBase::gotoMenuScreenScreenWipeTransitionEast()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoMenuScreenScreenWipeTransitionEastImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoMenuScreenScreenWipeTransitionEastImpl()
+{
+    touchgfx::makeTransition<MenuScreenView, MenuScreenPresenter, touchgfx::WipeTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// RobotScreen
+
+void FrontendApplicationBase::gotoRobotScreenScreenWipeTransitionWest()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoRobotScreenScreenWipeTransitionWestImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoRobotScreenScreenWipeTransitionWestImpl()
+{
+    touchgfx::makeTransition<RobotScreenView, RobotScreenPresenter, touchgfx::WipeTransition<WEST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// InstrScreen
+
+void FrontendApplicationBase::gotoInstrScreenScreenWipeTransitionWest()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoInstrScreenScreenWipeTransitionWestImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoInstrScreenScreenWipeTransitionWestImpl()
+{
+    touchgfx::makeTransition<InstrScreenView, InstrScreenPresenter, touchgfx::WipeTransition<WEST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

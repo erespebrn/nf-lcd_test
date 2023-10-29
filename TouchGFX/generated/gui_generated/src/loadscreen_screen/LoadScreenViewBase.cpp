@@ -11,9 +11,9 @@ LoadScreenViewBase::LoadScreenViewBase()
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    box1.setPosition(0, 0, 480, 272);
-    box1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    add(box1);
+    box.setPosition(0, 0, 480, 272);
+    box.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    add(box);
 
     scalabeLogo.setBitmap(touchgfx::Bitmap(BITMAP_EMWISE_LOGO_CROPPED_ID));
     scalabeLogo.setPosition(130, 65, 221, 57);

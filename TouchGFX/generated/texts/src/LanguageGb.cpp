@@ -10,6 +10,11 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE;
 // Remap all strings
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
-    0, // T___SINGLEUSE_OD6K: "Near-Field Scanner"
-    19 // T___SINGLEUSE_HWO3: "<>"
+    0,  // T___SINGLEUSE_QX1S: "Near-Field Scanner"
+    0,  // T___SINGLEUSE_0GW3: "Near-Field Scanner"
+    0,  // T___SINGLEUSE_RUPU: "Near-Field Scanner"
+    37, // T___SINGLEUSE_PVA0: "Status"
+    19, // T___SINGLEUSE_XGWC: "Meas. Instrument\n"
+    44, // T___SINGLEUSE_NS0Z: "Robot"
+    0   // T___SINGLEUSE_OD6K: "Near-Field Scanner"
 };

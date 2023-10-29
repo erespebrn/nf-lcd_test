@@ -7,7 +7,15 @@
 #include <touchgfx/Bitmap.hpp>
 
 const uint16_t BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BOXPROGRESS_NORMAL_MEDIUM_ID = 0;
-const uint16_t BITMAP_EMWISE_LOGO_CROPPED_ID = 1;
+const uint16_t BITMAP_BACK_20X20_ID = 1;
+const uint16_t BITMAP_EMWISE_LOGO_CROPPED_ID = 2;
+const uint16_t BITMAP_INSTRUMENT_30X30_ID = 3;
+const uint16_t BITMAP_ROBOTIC_ARM_ID = 4;
+const uint16_t BITMAP_ROBOTIC_ARM_100X100_ID = 5;
+const uint16_t BITMAP_STATUS_ID = 6;
+const uint16_t BITMAP_STATUS_100X100_ID = 7;
+const uint16_t BITMAP_SWAP_100X100_ID = 8;
+const uint16_t BITMAP_SWAP_30X30_ID = 9;
 
 namespace BitmapDatabase
 {

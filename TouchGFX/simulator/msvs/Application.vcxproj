@@ -27,6 +27,15 @@
     <ClCompile Include="..\..\gui\src\menuscreen_screen\MenuScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\menuscreen_screen\MenuScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\menuscreen_screen\MenuScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\robotscreen_screen\RobotScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\robotscreen_screen\RobotScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\robotscreen_screen\RobotScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\instrscreen_screen\InstrScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\instrscreen_screen\InstrScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\instrscreen_screen\InstrScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\statusscreen_screen\StatusScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\statusscreen_screen\StatusScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\statusscreen_screen\StatusScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -185,6 +194,15 @@
     <ClInclude Include="..\..\gui\include\gui\menuscreen_screen\MenuScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\menuscreen_screen\MenuScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\menuscreen_screen\MenuScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\robotscreen_screen\RobotScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\robotscreen_screen\RobotScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\robotscreen_screen\RobotScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\instrscreen_screen\InstrScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\instrscreen_screen\InstrScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\instrscreen_screen\InstrScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\statusscreen_screen\StatusScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\statusscreen_screen\StatusScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\statusscreen_screen\StatusScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

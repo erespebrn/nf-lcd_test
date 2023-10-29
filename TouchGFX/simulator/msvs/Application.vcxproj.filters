@@ -199,6 +199,42 @@
     <Filter Include="Header Files\generated\gui_generated\loadscreen_screen">
       <UniqueIdentifier>7A52C9CB-581A-9FE2-4451-52392F84CF63</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\robotscreen_screen">
+      <UniqueIdentifier>3EE52A86-2D3E-917F-928A-8AC05CB02116</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\robotscreen_screen">
+      <UniqueIdentifier>A00325F0-EF34-38D0-68C9-CE89F079454F</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\robotscreen_screen">
+      <UniqueIdentifier>01A873A4-1F28-4540-E147-29C9C4F7606F</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\robotscreen_screen">
+      <UniqueIdentifier>D8622CAB-A3E5-CE6B-9F0F-32A5DD4AA59C</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\statusscreen_screen">
+      <UniqueIdentifier>95FD4D03-9590-F3A7-C99F-40335CE4799F</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\statusscreen_screen">
+      <UniqueIdentifier>A484659A-6B89-7D42-9527-FD7175EC03F9</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\instrscreen_screen">
+      <UniqueIdentifier>0A01F7E3-0B02-45B2-194C-D7C9C5529113</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\instrscreen_screen">
+      <UniqueIdentifier>08247105-16C0-7723-673E-AD521F3C1265</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\statusscreen_screen">
+      <UniqueIdentifier>07FA1EF9-5A4C-072E-482C-090BF3F960D3</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\instrscreen_screen">
+      <UniqueIdentifier>4951B770-265A-7CD1-AA29-9F11E8D4C8EB</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\instrscreen_screen">
+      <UniqueIdentifier>7666EB92-BB02-D3ED-8E71-F515A6ACF929</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\statusscreen_screen">
+      <UniqueIdentifier>6FD12044-7ED6-7A51-A232-D605DB12566C</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -248,6 +284,33 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\menuscreen_screen\MenuScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\menuscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\robotscreen_screen\RobotScreenPresenter.cpp">
+      <Filter>Source Files\gui\robotscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\robotscreen_screen\RobotScreenView.cpp">
+      <Filter>Source Files\gui\robotscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\robotscreen_screen\RobotScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\robotscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\instrscreen_screen\InstrScreenPresenter.cpp">
+      <Filter>Source Files\gui\instrscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\instrscreen_screen\InstrScreenView.cpp">
+      <Filter>Source Files\gui\instrscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\instrscreen_screen\InstrScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\instrscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\statusscreen_screen\StatusScreenPresenter.cpp">
+      <Filter>Source Files\gui\statusscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\statusscreen_screen\StatusScreenView.cpp">
+      <Filter>Source Files\gui\statusscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\statusscreen_screen\StatusScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\statusscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -714,6 +777,33 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\menuscreen_screen\MenuScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\menuscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\robotscreen_screen\RobotScreenPresenter.hpp">
+      <Filter>Header Files\gui\robotscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\robotscreen_screen\RobotScreenView.hpp">
+      <Filter>Header Files\gui\robotscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\robotscreen_screen\RobotScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\robotscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\instrscreen_screen\InstrScreenPresenter.hpp">
+      <Filter>Header Files\gui\instrscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\instrscreen_screen\InstrScreenView.hpp">
+      <Filter>Header Files\gui\instrscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\instrscreen_screen\InstrScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\instrscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\statusscreen_screen\StatusScreenPresenter.hpp">
+      <Filter>Header Files\gui\statusscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\statusscreen_screen\StatusScreenView.hpp">
+      <Filter>Header Files\gui\statusscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\statusscreen_screen\StatusScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\statusscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

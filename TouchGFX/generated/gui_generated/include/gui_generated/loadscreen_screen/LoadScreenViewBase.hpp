@@ -27,7 +27,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Box box1;
+    touchgfx::Box box;
     touchgfx::ScalableImage scalabeLogo;
     touchgfx::BoxProgress m_initProgressBar;
 
