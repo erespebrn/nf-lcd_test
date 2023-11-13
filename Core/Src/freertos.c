@@ -25,7 +25,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "app_touchgfx.h"
+//#include "app_touchgfx.h"
+#include "lvgl/lvgl.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,15 +49,17 @@
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
-osThreadId touchGFXHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
+osThreadId lvglTickHandle;
+osThreadId lvglTimerHandle;
 
+void LVGLTimer(void const * argument);
+void LVGLTick(void const * argument);
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
-void touchGFXtask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -107,12 +110,13 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  /* definition and creation of touchGFX */
-  osThreadDef(touchGFX, touchGFXtask, osPriorityIdle, 0, 8192);
-  touchGFXHandle = osThreadCreate(osThread(touchGFX), NULL);
-
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  osThreadDef(lvglTick, LVGLTick, osPriorityNormal, 0, 4*1024);
+  lvglTickHandle = osThreadCreate(osThread(lvglTick), NULL);
+
+  osThreadDef(lvglTimer, LVGLTimer, osPriorityNormal, 0, 4*1024);
+  lvglTimerHandle = osThreadCreate(osThread(lvglTimer), NULL);
   /* USER CODE END RTOS_THREADS */
 
 }
@@ -135,27 +139,24 @@ void StartDefaultTask(void const * argument)
   /* USER CODE END StartDefaultTask */
 }
 
-/* USER CODE BEGIN Header_touchGFXtask */
-/**
-* @brief Function implementing the touchGFX thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_touchGFXtask */
-void touchGFXtask(void const * argument)
-{
-  /* USER CODE BEGIN touchGFXtask */
-  MX_TouchGFX_Process();
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END touchGFXtask */
-}
-
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-
+void LVGLTimer(void const * argument)
+{
+  for(;;)
+  {
+    lv_timer_handler();
+//    osDelay(1);
+  }
+}
+/* LVGL tick source */
+void LVGLTick(void const * argument)
+{
+  for(;;)
+  {
+    lv_tick_inc(5);
+    osDelay(5);
+  }
+}
 /* USER CODE END Application */
 

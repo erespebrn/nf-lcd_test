@@ -89,7 +89,7 @@ SECTIONS
   
   ExtFlashSection :
   {
-  	*(ExtFlashSection)
+  	*(.ExtFlashSection)
   } > EXT_FLASH 
 
   .ARM.extab   : {
@@ -180,7 +180,15 @@ SECTIONS
     . = ALIGN(8);
   } >RAM
   
-
+  instrserver_section (NOLOAD) :
+  {
+  	. = ABSOLUTE(0xC0060000);
+  	*(.instrServerBuffer)
+  	
+  	. = ABSOLUTE(0xC00A0000);
+  	*(.tcp_rx_buffer)
+  	
+  } > SDRAM
 
   /* Remove information from the compiler libraries */
   /DISCARD/ :

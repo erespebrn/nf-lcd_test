@@ -27,11 +27,14 @@
 #include "usart.h"
 #include "gpio.h"
 #include "fmc.h"
-#include "app_touchgfx.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "lvgl/lvgl.h"
+#include "lvgl/demos/lv_demos.h"
+#include "lvgl_port_touch.h"
+#include "lvgl_port_display.h"
+#include "UI/ui.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -113,17 +116,28 @@ int main(void)
   MX_I2C3_Init();
   MX_USART6_UART_Init();
   MX_QUADSPI_Init();
-  MX_TouchGFX_Init();
-  /* Call PreOsInit function */
-  MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
+
+  /* initialize LVGL framework */
+  lv_init();
+
+  /* initialize display and touchscreen */
+  lvgl_display_init();
+  lvgl_touchscreen_init();
+
+  ui_init();
+
+  /* lvgl demo */
+//  lv_demo_benchmark();
+//  lv_demo_widgets();
+//  lv_demo_music();
+//  lvgl_test();
 
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
 
-  HAL_GPIO_WritePin(LCD_BL_CTRL_GPIO_Port, LCD_BL_CTRL_Pin, GPIO_PIN_SET);
   /* Start scheduler */
   osKernelStart();
 

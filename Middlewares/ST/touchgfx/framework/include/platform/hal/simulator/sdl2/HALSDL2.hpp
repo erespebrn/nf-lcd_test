@@ -23,8 +23,8 @@
 #include <touchgfx/hal/HAL.hpp>
 #include <touchgfx/hal/Types.hpp>
 #include <touchgfx/lcd/LCD.hpp>
-#include <SDL2/SDL_render.h>
-#include <SDL2/SDL_video.h>
+//#include <SDL2/SDL_render.h>
+//#include <SDL2/SDL_video.h>
 
 namespace touchgfx
 {
